@@ -30,13 +30,10 @@ async function run() {
         });
 
         app.post('/services', async (req, res) => {
-            // const services = req.body;
-            const services = {
-                title: "Record of a Shriveled Datum",
-                content: "No bytes, no problem. Just insert a document, in MongoDB",
-            }
-            console.log(services)
-            const result = await orderCollection.insertOne(services);
+            const service = req.body;
+           
+            console.log(service)
+            const result = await servicesCollection.insertOne(service);
             res.send(result);
         })
     }
